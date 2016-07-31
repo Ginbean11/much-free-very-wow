@@ -1,12 +1,13 @@
-class User < ActiveRecord::Base
+class Activity < ActiveRecord::Base
 
-  has_many :activities
+  belongs_to :user
 
   def slug
-    self.username.parameterize
+    self.title.parameterize
   end
 
   def self.find_by_slug(slug)
     self.all.find {|instance| instance.slug == slug}
   end
+
 end
