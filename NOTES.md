@@ -5,6 +5,6 @@ As we learn more, I'd like to implement some kind of voting system in the activi
 
 ## Notes ##
 * Do I make one table for each activity type or do I consolidate. Is it more beneficial to consolidate or just have a type property for activities then sort by that if I want to show a rollup of only one kind of activity?
-  * Types of Activities: Music, Art, Food, Comedy, Museums, Dance, Sports, Outdoors
+  * Types of Activities: Music, Art, Food & Drink, Comedy, Museums, Dance, Sports, Outdoors
 
 * Do I let users edit other users submissions?

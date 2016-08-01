@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(version: 2) do
 
   create_table "activities", force: :cascade do |t|
     t.string  "title"
-    t.string  "type"
+    t.string  "category"
     t.date    "date"
     t.text    "description"
     t.integer "user_id"

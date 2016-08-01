@@ -4,7 +4,7 @@
     <title>Create New Activity</title>
   </head>
   <body>
-    <form action="/activities">
+    <form action="/activities" method="post">
       <label for="title">Title: </label>
       <input type="text" name="title" id="title" />
 
@@ -16,6 +16,8 @@
 
       <label for="description">Description: </label>
       <textarea name="description" id="description" cols="50" rows="10"></textarea>
+
+      <input type="submit" name="submit" id="submit" />
     </form>
   </body>
 </html>

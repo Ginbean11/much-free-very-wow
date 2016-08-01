@@ -6,6 +6,7 @@ class ActivitiesController < ApplicationController
   end
 
   post '/activities' do
+    binding.pry
     @activity = Activity.create(params)
     redirect to "/activities/#{@activity.id}"
   end
