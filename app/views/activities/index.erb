@@ -1,14 +1,16 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>All Activities</title>
+    <title>Much Free, Very Wow</title>
   </head>
   <body>
+    <a href="/signup">Sign Up</a> | <a href="/login">Log In</a>
+    <h1>Much Free, Very Wow</h1>
     <% @activities.each do |activity| %>
-      <h1><%= activity.title %></h1>
+      <h2><%= activity.title %></h2>
       <h3><%= activity.date %></h3>
       <h3><%= activity.category %></h3>
-      <h5><%= activity.description %></h5>
+      <p><%= activity.description %></p>
     <% end %>
   </body>
 </html>

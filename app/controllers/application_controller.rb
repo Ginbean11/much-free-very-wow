@@ -9,6 +9,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    erb :index
+    @activities = Activity.all
+    erb :'/activities/index'
   end
 end

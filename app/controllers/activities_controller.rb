@@ -2,11 +2,11 @@ class ActivitiesController < ApplicationController
 
   # Create
   get '/activities/new' do
+    @activities = Activity.all
     erb :'/activities/new'
   end
 
   post '/activities' do
-    binding.pry
     @activity = Activity.create(params)
     redirect to "/activities/#{@activity.id}"
   end
@@ -14,7 +14,7 @@ class ActivitiesController < ApplicationController
   # Read
   get '/activities' do
     @activities = Activity.all
-    erb :'/activities/index'  # home page may list all activities too
+    erb :'/activities/index'
   end
 
   get '/activities/:id' do
