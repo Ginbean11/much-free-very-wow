@@ -1,4 +1,4 @@
-class ActivitesController < ApplicationController
+class ActivitiesController < ApplicationController
 
   # Create
   get '/activities/new' do
