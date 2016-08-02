@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    if blank_params?
+    if blank_params?("user")
       redirect to '/signup'
     else
       @user = User.create(params[:user])

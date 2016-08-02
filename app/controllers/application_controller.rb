@@ -22,8 +22,8 @@ class ApplicationController < Sinatra::Base
       User.find(session[:user_id])
     end
 
-    def blank_params?
-      params[:user].values.any?{|param| param.length <= 0 || param.nil?}
+    def blank_params?(hash_key)
+      params["#{hash_key}"].values.any?{|param| param.length <= 0 || param.nil?}
     end
   end
 end

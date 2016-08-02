@@ -2,13 +2,18 @@ class ActivitiesController < ApplicationController
 
   # Create
   get '/activities/new' do
+    @user = User.find(session[:user_id])
     @activities = Activity.all
     erb :'/activities/new'
   end
 
   post '/activities' do
-    @activity = Activity.create(params[:activity])
-    redirect to "/activities/#{@activity.slug}"
+    if blank_params?("activity")
+      redirect to '/activities/new'
+    else
+      @activity = Activity.create(params[:activity])
+      redirect to "/activities/#{@activity.slug}"
+    end
   end
 
   # Read
@@ -30,11 +35,11 @@ class ActivitiesController < ApplicationController
 
   patch '/activities/:slug' do
     @activity = Activity.find_by_slug(params[:slug])
-    if params[:description] != ""
+    if blank_params?("activity")
+      redirect to "/activities/#{@activity.slug}/edit"
+    else
       @activity.update(params[:activity])
       redirect to "/activities/#{@activity.slug}"
-    else
-      redirect to "/activities/#{@activity.slug}/edit"
     end
   end
 

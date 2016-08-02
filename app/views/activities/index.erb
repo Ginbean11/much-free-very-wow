@@ -6,10 +6,10 @@
   <body>
 
     <% if !logged_in? %>
-      <a href="/signup">Sign Up</a> | <a href="/login">Log In</a> | <a href="/activities/new">Add New Activity</a>
+      <a href="/signup">Sign Up</a> | <a href="/login">Log In</a>
     <% else %>
       <h4>Welcome, <%= current_user.username.capitalize %></h4>
-      <a href="/logout">Log Out</a>
+      <a href="/activities/new">Add New Activity</a> | <a href="/logout">Log Out</a>
     <% end %>
 
     <h1>Much Free, Very Wow</h1>
