@@ -1,4 +1,4 @@
-class CreateUsers < ActiveRecord::Migration[4.2]
+class CreateUsers < ActiveRecord::Migration
   create_table :users do |t|
     t.string :username
     t.string :password_digest

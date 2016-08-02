@@ -8,3 +8,7 @@ As we learn more, I'd like to implement some kind of voting system in the activi
   * Types of Activities: Music, Art, Food & Drink, Comedy, Museums, Dance, Sports, Outdoors
 
 * Do I let users edit other users submissions?
+
+* When is it appropriate to make a model vs including that as a column in another model? As an example, activities in this app have categories as a column. Should these categories be their own model instead? What qualifies something as "model-worthy" or not?
+  * A model can have attributes and methods
+  * A column has only a value

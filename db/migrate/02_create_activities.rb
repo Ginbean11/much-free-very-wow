@@ -1,4 +1,4 @@
-class CreateActivities < ActiveRecord::Migration[4.2]
+class CreateActivities < ActiveRecord::Migration
   create_table :activities do |t|
     t.string :title
     t.string :category

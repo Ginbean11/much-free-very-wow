@@ -10,4 +10,10 @@ class Activity < ActiveRecord::Base
     self.all.find {|instance| instance.slug == slug}
   end
 
+  def self.all_categories
+    self.all.map do |activity|
+      activity.category
+    end.uniq
+  end
+
 end

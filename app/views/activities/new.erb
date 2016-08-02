@@ -12,13 +12,16 @@
       <input type="date" name="date" id="date" />
 
       <label for="category">Category: </label>
-      
-      <select name="category" id="category" />
+      <select name="category" id="category">
+        <% Activity.all_categories.each do |category| %>
+        <option value="<%= category %>"><%= category %></option>
+        <% end %>
+      </select>
 
       <label for="description">Description: </label>
       <textarea name="description" id="description" cols="50" rows="10"></textarea>
 
-      <input type="submit" name="submit" id="submit" />
+      <input type="submit" />
     </form>
   </body>
 </html>

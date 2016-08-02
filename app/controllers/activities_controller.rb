@@ -23,6 +23,20 @@ class ActivitiesController < ApplicationController
   end
 
   # Update
+  get '/activities/:id/edit' do
+    @activity = Activity.find(params[:id])
+    erb :'/activities/edit'
+  end
+
+  patch '/activities/:id' do
+    @activity = Activity.find(params[:id])
+    if params[:description] != ""
+      @activity.update(params)
+      redirect "/activities/#{@activity.id}"
+    else
+      redirect to "/activities/#{@activity.id}/edit"
+    end
+  end
 
   # Delete
 
