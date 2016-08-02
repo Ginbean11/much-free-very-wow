@@ -9,9 +9,13 @@ class UsersController < ApplicationController
   end
 
   post '/signup' do
-    @user = User.create(params[:user])
-    session[:user_id] = @user.id
-    redirect to '/'
+    if blank_params?
+      redirect to '/signup'
+    else
+      @user = User.create(params[:user])
+      session[:user_id] = @user.id
+      redirect to '/'
+    end
   end
 
   get '/login' do
@@ -26,5 +30,10 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:user][:username])
     session[:user_id] = @user.id
     redirect to '/'
+  end
+
+  get '/logout' do
+    session.clear
+    redirect to '/login'
   end
 end

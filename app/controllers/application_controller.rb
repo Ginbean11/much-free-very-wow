@@ -21,5 +21,9 @@ class ApplicationController < Sinatra::Base
     def current_user
       User.find(session[:user_id])
     end
+
+    def blank_params?
+      params[:user].values.any?{|param| param.length <= 0 || param.nil?}
+    end
   end
 end
