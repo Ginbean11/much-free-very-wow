@@ -7,7 +7,7 @@ class ActivitiesController < ApplicationController
   end
 
   post '/activities' do
-    @activity = Activity.create(params)
+    @activity = Activity.create(params[:activity])
     redirect to "/activities/#{@activity.slug}"
   end
 
@@ -31,7 +31,7 @@ class ActivitiesController < ApplicationController
   patch '/activities/:slug' do
     @activity = Activity.find_by_slug(params[:slug])
     if params[:description] != ""
-      @activity.update(params)
+      @activity.update(params[:activity])
       redirect to "/activities/#{@activity.slug}"
     else
       redirect to "/activities/#{@activity.slug}/edit"
