@@ -8,7 +8,7 @@ class ActivitiesController < ApplicationController
 
   post '/activities' do
     @activity = Activity.create(params)
-    redirect to "/activities/#{@activity.id}"
+    redirect to "/activities/#{@activity.slug}"
   end
 
   # Read
@@ -17,30 +17,30 @@ class ActivitiesController < ApplicationController
     erb :'/activities/index'
   end
 
-  get '/activities/:id' do
-    @activity = Activity.find(params[:id])
+  get '/activities/:slug' do
+    @activity = Activity.find_by_slug(params[:slug])
     erb :'/activities/show'
   end
 
   # Update
-  get '/activities/:id/edit' do
-    @activity = Activity.find(params[:id])
+  get '/activities/:slug/edit' do
+    @activity = Activity.find_by_slug(params[:slug])
     erb :'/activities/edit'
   end
 
-  patch '/activities/:id' do
-    @activity = Activity.find(params[:id])
+  patch '/activities/:slug' do
+    @activity = Activity.find_by_slug(params[:slug])
     if params[:description] != ""
       @activity.update(params)
-      redirect to "/activities/#{@activity.id}"
+      redirect to "/activities/#{@activity.slug}"
     else
-      redirect to "/activities/#{@activity.id}/edit"
+      redirect to "/activities/#{@activity.slug}/edit"
     end
   end
 
   # Delete
-  delete '/activities/:id' do
-    @activity = Activity.find(params[:id])
+  delete '/activities/:slug' do
+    @activity = Activity.find_by_slug(params[:slug])
     @activity.destroy
     redirect to "/activities"
   end

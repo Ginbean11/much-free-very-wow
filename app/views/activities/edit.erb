@@ -4,7 +4,7 @@
     <title>Edit an Activity</title>
   </head>
   <body>
-    <form action="/activities/<%= @activity.id %>" method="post">
+    <form action="/activities/<%= @activity.slug %>" method="post">
       <input type="hidden" name="_method" value="patch">
 
       <label for="title">Title: </label>

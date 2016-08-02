@@ -7,7 +7,7 @@
     <a href="/signup">Sign Up</a> | <a href="/login">Log In</a> | <a href="/activities/new">Add New Activity</a>
     <h1>Much Free, Very Wow</h1>
     <% @activities.each do |activity| %>
-      <h2><a href="/activities/<%= activity.id %>"><%= activity.title %></h2></a>
+      <h2><a href="/activities/<%= activity.slug %>"><%= activity.title %></h2></a>
       <h3><%= activity.date %></h3>
       <h3><%= activity.category %></h3>
       <p><%= activity.description %></p>
