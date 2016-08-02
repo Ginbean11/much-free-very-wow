@@ -15,18 +15,8 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    @user = User.find(username: params[:username])
+    @user = User.find_by(username: params[:user][:username])
     session[:user_id] = @user.id
     redirect to '/'
-  end
-
-  helpers do
-    def logged_in?
-      !!session[:user_id]
-    end
-
-    def current_user
-      User.find(session[:user_id])
-    end
   end
 end
