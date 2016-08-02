@@ -32,12 +32,16 @@ class ActivitiesController < ApplicationController
     @activity = Activity.find(params[:id])
     if params[:description] != ""
       @activity.update(params)
-      redirect "/activities/#{@activity.id}"
+      redirect to "/activities/#{@activity.id}"
     else
       redirect to "/activities/#{@activity.id}/edit"
     end
   end
 
   # Delete
-
+  delete '/activities/:id' do
+    @activity = Activity.find(params[:id])
+    @activity.destroy
+    redirect to "/activities"
+  end
 end
