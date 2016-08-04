@@ -1,22 +1,19 @@
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Single Activity Details</title>
-  </head>
-  <body>
-    <a href="/">Back to All Activities</a>
-    <h1><%= @activity.title %></h1>
-    <h3><%= @activity.date %></h3>
-    <h3><%= @activity.category %></h3>
-    <p><%= @activity.description %></p>
 
-    <br />
-    <a href="/activities/<%= @activity.slug %>/edit">
-      <input type="button" value="Edit">
-    </a>
-    <form action="/activities/<%= @activity.slug %>" method="post">
-      <input type="hidden" name="_method" value="delete" />
-      <input type="submit" value="Delete" />
-    </form>
-  </body>
-</html>
+    <div class="row">
+      <div class="col-12">
+        <a href="/"><-- Back to All Activities</a>
+        <h3><%= @activity.title %> - <%= @activity.date.strftime('%A, %b %d, %Y') %> - <%= @activity.category.titleize %></h3>
+        <p><%= @activity.description %></p>
+      </div>
+
+      <div class="col-4">
+        <a href="/activities/<%= @activity.slug %>/edit">
+          <input type="button" value="Edit">
+        </a>
+
+        <form action="/activities/<%= @activity.slug %>" method="post" style="float: left;">
+          <input type="hidden" name="_method" value="delete" />
+          <input type="submit" value="Delete" />
+        </form>
+      </div>
+    </div>

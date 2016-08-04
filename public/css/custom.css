@@ -1,0 +1,17 @@
+button,
+html [type="button"], /* 1 */
+[type="reset"],
+[type="submit"] {
+  font-size: 16px;
+  padding: 10px;
+  margin-right: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-image: url("/img/square_bg.png");
+  background-repeat: repeat;
+}
