@@ -1,28 +1,19 @@
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Much Free, Very Wow</title>
-  </head>
-  <body>
+    <% @activities.each do |activity| %>
+      <div class="row">
+          <div class="col-8">
+            <a href="/activities/<%= activity.slug %>"><%= activity.title %></a>
+          </div>
 
-      <% @activities.each do |activity| %>
-        <div class="row">
-            <div class="col-8">
-              <a href="/activities/<%= activity.slug %>"><%= activity.title %></a>
-            </div>
+          <div class="col-2">
+            <%= activity.date.strftime('%A, %b %d, %Y') %>
+          </div>
+          <div class="col-2">
+            <%= activity.category.titleize %>
+          </div>
 
-            <div class="col-2">
-              <%= activity.date.strftime('%A, %b %d, %Y') %>
-            </div>
-            <div class="col-2">
-              <%= activity.category.titleize %>
-            </div>
-
-            <div class="col-10">
-              <%= activity.description %>
-            </div>
-        </div>
-        <br />
-      <% end %>
-  </body>
-</html>
+          <div class="col-10">
+            <%= activity.description %>
+          </div>
+      </div>
+      <br />
+    <% end %>
