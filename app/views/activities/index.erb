@@ -5,12 +5,24 @@
   </head>
   <body>
 
-    <% @activities.each do |activity| %>
-      <h2><a href="/activities/<%= activity.slug %>"><%= activity.title %></h2></a>
-      <h3><%= activity.date %></h3>
-      <h3><%= activity.category %></h3>
-      <p><%= activity.description %></p>
-    <% end %>
+      <% @activities.each do |activity| %>
+        <div class="row">
+            <div class="col-8">
+              <a href="/activities/<%= activity.slug %>"><%= activity.title %></a>
+            </div>
 
+            <div class="col-2">
+              (<%= activity.date %>)
+            </div>
+            <div class="col-2">
+              <%= activity.category %>
+            </div>
+
+            <div class="col-10">
+              <%= activity.description %>
+            </div>
+        </div>
+        <br />
+      <% end %>
   </body>
 </html>

@@ -8,16 +8,13 @@
     <div class="container">
       <div class="row">
 
-        <div class="col-3">
+        <div class="col-10">
           <h1>Much Free, Very Wow</h1>
         </div>
 
-        <div class="col-7">
-        </div>
-
-        <div class="col-2">
+        <div class="col-2 right">
           <% if !logged_in? %>
-            <h1><a href="/signup">Sign Up</a> | <a href="/login">Log In</a></h1>
+            <a href="/signup"><button>Sign Up</button></a> <a href="/login"><button>Log In</button></a>
           <% else %>
             <!-- <h4>Welcome, <%= current_user.username.capitalize %></h4> -->
             <h1><a href="/activities/new">Add New Activity</a> | <a href="/logout">Log Out</a></h1>
@@ -28,6 +25,7 @@
 
 
       <%= yield %>
+
     </div>
   </body>
 </html>
