@@ -1,18 +1,19 @@
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Sign Up</title>
-  </head>
-  <body>
-    <h1>Much Free, Very Wow - Signup</h1>
-    <form action="/signup" method="post">
-      <label for="username">Username: </label>
-      <input type="text" name="user[username]" id="username" />
+      <div class="row">
+        <div class="col-12">
+          <h3>Please enter your details below</h3>
+          <form action="/signup" method="post">
+            <label for="username">Username: </label>
+            <input type="text" name="user[username]" id="username" />
 
-      <label for="password">Password: </label>
-      <input type="text" name="user[password]" id="password" />
+            <br /><br />
 
-      <input type="submit" id="submit" value="Sign Up" />
-    </form>
-  </body>
-</html>
+            <label for="password">Password: </label>
+            <input type="password" name="user[password]" id="password" />
+
+            <br /><br />
+
+            <input type="submit" id="submit" value="Sign Up" />
+          </form>
+        </div>
+    </div>
+  </div>

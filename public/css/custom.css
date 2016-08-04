@@ -11,6 +11,7 @@ html [type="button"], /* 1 */
    background-image: linear-gradient(to bottom, #b29af8, #9174ed);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#b29af8, endColorstr=#9174ed);
    margin-top: 10px;
    margin-left: 10px;
+   cursor: pointer;
 }
 
 button:hover,
