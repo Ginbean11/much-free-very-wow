@@ -1,17 +1,18 @@
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Log In</title>
-  </head>
-  <body>
-    <form action="/login" method="post">
-      <label for="username">Username: </label>
-      <input type="text" name="user[username]" id="username" />
+    <div class="row">
+      <div class="col-12">
+        <h3>Enter your credentials to login</h3>
+        <form action="/login" method="post">
+          <label for="username">Username: </label>
+          <input type="text" name="user[username]" id="username" />
 
-      <label for="password">Password: </label>
-      <input type="text" name="user[password]" id="password" />
+          <br /><br />
 
-      <input type="submit" id="submit" value="Log In" />
-    </form>
-  </body>
-</html>
+          <label for="password">Password: </label>
+          <input type="password" name="user[password]" id="password" />
+
+          <br /><br />
+
+          <input type="submit" id="submit" value="Log In" />
+        </form>
+      </div>
+    </div>
