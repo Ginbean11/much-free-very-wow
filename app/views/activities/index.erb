@@ -5,14 +5,6 @@
   </head>
   <body>
 
-    <% if !logged_in? %>
-      <a href="/signup">Sign Up</a> | <a href="/login">Log In</a>
-    <% else %>
-      <h4>Welcome, <%= current_user.username.capitalize %></h4>
-      <a href="/activities/new">Add New Activity</a> | <a href="/logout">Log Out</a>
-    <% end %>
-
-    <h1>Much Free, Very Wow</h1>
     <% @activities.each do |activity| %>
       <h2><a href="/activities/<%= activity.slug %>"><%= activity.title %></h2></a>
       <h3><%= activity.date %></h3>
