@@ -16,8 +16,8 @@
           <% if !logged_in? %>
             <a href="/signup"><button>Sign Up</button></a> <a href="/login"><button>Log In</button></a>
           <% else %>
-            <!-- <h4>Welcome, <%= current_user.username.capitalize %></h4> -->
-            <h1><a href="/activities/new">Add New Activity</a> | <a href="/logout">Log Out</a></h1>
+            <h4>Welcome, <%= current_user.username.capitalize %></h4>
+            <a href="/activities/new"><button>Add New Activity</button></a> | <a href="/logout"><button>Log Out</button></a>
           <% end %>
         </div>
 

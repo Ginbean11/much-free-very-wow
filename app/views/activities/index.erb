@@ -12,10 +12,10 @@
             </div>
 
             <div class="col-2">
-              (<%= activity.date %>)
+              <%= activity.date.strftime('%A, %b %d, %Y') %>
             </div>
             <div class="col-2">
-              <%= activity.category %>
+              <%= activity.category.titleize %>
             </div>
 
             <div class="col-10">
