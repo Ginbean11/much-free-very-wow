@@ -30,7 +30,11 @@ class ActivitiesController < ApplicationController
   # Update
   get '/activities/:slug/edit' do
     @activity = Activity.find_by_slug(params[:slug])
-    erb :'/activities/edit'
+    if @activity.user_id == current_user.id
+      erb :'/activities/edit'
+    else
+      erb :'/activities/show'
+    end
   end
 
   patch '/activities/:slug' do
