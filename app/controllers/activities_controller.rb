@@ -32,12 +32,15 @@ class ActivitiesController < ApplicationController
   # Update
   get '/activities/:slug/edit' do
     @activity = Activity.find_by_slug(params[:slug])
-    if @activity.user_id == current_user.id
+    if !logged_in?
+      flash[:not_logged_in_edit] = "You need to login to edit activities"
+      redirect to "/login"
+    elsif @activity.user_id == current_user.id
       flash[:edit_success] = "Thanks for updating the activity"
       erb :'/activities/edit'
     else
       flash[:edit_error] = "You are only able to edit your own posts"
-      erb :'/activities/show'
+      redirect to "/activities/#{@activity.slug}"
     end
   end
 
@@ -56,13 +59,16 @@ class ActivitiesController < ApplicationController
   # Delete
   delete '/activities/:slug' do
     @activity = Activity.find_by_slug(params[:slug])
-    if @activity.user_id == current_user.id
+    if !logged_in?
+      flash[:not_logged_in_delete] = "You need to login to delete activities"
+      redirect to "/login"
+    elsif @activity.user_id == current_user.id
       flash[:delete_success] = "This activity has been deleted"
       @activity.destroy
       redirect to "/activities"
     else
       flash[:delete_error] = "You are only able to delete your own posts"
-      redirect to "/activities/show"
+      redirect to "/activities/#{@activity.slug}"
     end
   end
 end

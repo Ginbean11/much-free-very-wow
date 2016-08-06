@@ -41,7 +41,7 @@ div#flash {
     top: 0px;
     width: 100%;
     font-size: 12px;
-    color: white;
+    color: #000000;
     text-align: center;
     padding: 5px;
     background-color: #47c1e7;
@@ -50,4 +50,5 @@ div#flash {
 
 .row:first-child {
   margin-top: 15px;
+  margin-bottom: 15px;
 }
