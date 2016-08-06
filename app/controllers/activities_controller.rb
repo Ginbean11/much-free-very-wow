@@ -9,8 +9,10 @@ class ActivitiesController < ApplicationController
 
   post '/activities' do
     if blank_params?("activity")
+      flash[:new_error] = "One or more fields were left empty. Please fill in all fields."
       redirect to '/activities/new'
     else
+      flash[:new_success] = "#{params[:activity][:title]} has been added to the activity list."
       @activity = Activity.create(params[:activity])
       redirect to "/activities/#{@activity.slug}"
     end
@@ -31,10 +33,10 @@ class ActivitiesController < ApplicationController
   get '/activities/:slug/edit' do
     @activity = Activity.find_by_slug(params[:slug])
     if @activity.user_id == current_user.id
-      flash[:success]
+      flash[:edit_success] = "Thanks for updating the activity"
       erb :'/activities/edit'
     else
-      flash[:error] = "You are only able to edit your own posts"
+      flash[:edit_error] = "You are only able to edit your own posts"
       erb :'/activities/show'
     end
   end
@@ -42,9 +44,11 @@ class ActivitiesController < ApplicationController
   patch '/activities/:slug' do
     @activity = Activity.find_by_slug(params[:slug])
     if blank_params?("activity")
+      flash[:update_error] = "One or more fields were left empty. Please fill in all fields."
       redirect to "/activities/#{@activity.slug}/edit"
     else
       @activity.update(params[:activity])
+      flash[:update_success] = "#{params[:activity][:title]} has been updated"
       redirect to "/activities/#{@activity.slug}"
     end
   end
@@ -52,7 +56,13 @@ class ActivitiesController < ApplicationController
   # Delete
   delete '/activities/:slug' do
     @activity = Activity.find_by_slug(params[:slug])
-    @activity.destroy
-    redirect to "/activities"
+    if @activity.user_id == current_user.id
+      flash[:delete_success] = "#{@activity.slug} has been deleted"
+      @activity.destroy
+      redirect to "/activities"
+    else
+      flash[:delete_error] = "You are only able to delete your own posts"
+      redirect to "/activities/show"
+    end
   end
 end
