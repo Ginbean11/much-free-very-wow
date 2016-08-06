@@ -12,7 +12,7 @@ class ActivitiesController < ApplicationController
       flash[:new_error] = "One or more fields were left empty. Please fill in all fields."
       redirect to '/activities/new'
     else
-      flash[:new_success] = "#{params[:activity][:title]} has been added to the activity list."
+      flash[:new_success] = "Your activity has been added to the activity list."
       @activity = Activity.create(params[:activity])
       redirect to "/activities/#{@activity.slug}"
     end
@@ -48,7 +48,7 @@ class ActivitiesController < ApplicationController
       redirect to "/activities/#{@activity.slug}/edit"
     else
       @activity.update(params[:activity])
-      flash[:update_success] = "#{params[:activity][:title]} has been updated"
+      flash[:update_success] = "This activity has been updated!"
       redirect to "/activities/#{@activity.slug}"
     end
   end
@@ -57,7 +57,7 @@ class ActivitiesController < ApplicationController
   delete '/activities/:slug' do
     @activity = Activity.find_by_slug(params[:slug])
     if @activity.user_id == current_user.id
-      flash[:delete_success] = "#{@activity.slug} has been deleted"
+      flash[:delete_success] = "This activity has been deleted"
       @activity.destroy
       redirect to "/activities"
     else
