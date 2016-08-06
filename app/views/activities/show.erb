@@ -14,5 +14,14 @@
           <input type="hidden" name="_method" value="delete" />
           <input type="submit" value="Delete" />
         </form>
+
+        <% if flash[:success] %>
+          <p><%= flash[:success] %></p>
+        <% end %>
+        
+        <% if flash[:error] %>
+          <p><%= flash[:error] %></p>
+        <% end %>
+
       </div>
     </div>

@@ -108,6 +108,7 @@ DEPENDENCIES
   bcrypt
   capybara
   pry
+  rack
   rack-test
   rake
   require_all

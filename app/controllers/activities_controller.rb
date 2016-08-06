@@ -31,8 +31,10 @@ class ActivitiesController < ApplicationController
   get '/activities/:slug/edit' do
     @activity = Activity.find_by_slug(params[:slug])
     if @activity.user_id == current_user.id
+      flash[:success]
       erb :'/activities/edit'
     else
+      flash[:error] = "You are only able to edit your own posts"
       erb :'/activities/show'
     end
   end
