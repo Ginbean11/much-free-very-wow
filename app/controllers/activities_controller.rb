@@ -32,6 +32,7 @@ class ActivitiesController < ApplicationController
   # Update
   get '/activities/:slug/edit' do
     @activity = Activity.find_by_slug(params[:slug])
+
     if !logged_in?
       flash[:not_logged_in_edit] = "You need to login to edit activities"
       redirect to "/login"
@@ -46,6 +47,7 @@ class ActivitiesController < ApplicationController
 
   patch '/activities/:slug' do
     @activity = Activity.find_by_slug(params[:slug])
+
     if blank_params?("activity")
       flash[:update_error] = "One or more fields were left empty. Please fill in all fields."
       redirect to "/activities/#{@activity.slug}/edit"
@@ -59,6 +61,7 @@ class ActivitiesController < ApplicationController
   # Delete
   delete '/activities/:slug' do
     @activity = Activity.find_by_slug(params[:slug])
+    
     if !logged_in?
       flash[:not_logged_in_delete] = "You need to login to delete activities"
       redirect to "/login"

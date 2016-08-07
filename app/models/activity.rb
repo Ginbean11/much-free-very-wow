@@ -3,16 +3,17 @@ class Activity < ActiveRecord::Base
   belongs_to :user
 
   @@default_categories = [
-    "Art",
-    "Comedy",
-    "Dance",
-    "Film",
-    "Food & Drink",
-    "Museum",
-    "Music",
-    "Outdoors",
-    "Religion",
-    "Sports"
+    "art",
+    "comedy",
+    "dance",
+    "film",
+    "food & drink",
+    "museum",
+    "music",
+    "outdoors",
+    "religion",
+    "sports",
+    "technology"
   ]
 
   def slug

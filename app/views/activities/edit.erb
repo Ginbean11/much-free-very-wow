@@ -17,7 +17,7 @@
           <label for="category">Category: </label>
           <select name="activity[category]" id="category">
           <% Activity.default_categories.each do |category| %>
-            <option value="<%= category.downcase %>"><%= category %></option>
+            <option value="<%= category %>" <%= 'selected' if @activity.category == category %>><%= category.titleize %></option>
           <% end %>
           </select>
 
