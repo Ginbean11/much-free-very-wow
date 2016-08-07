@@ -46,6 +46,7 @@ div#flash {
     padding: 5px;
     background-color: #47c1e7;
     border-bottom: 3px solid #106782;
+    z-index: 1;
 }
 
 .row:first-child {
