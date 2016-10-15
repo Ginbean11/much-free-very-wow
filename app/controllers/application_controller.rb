@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
 
   get '/' do
     @activities = Activity.all
-    erb :'/activities/index'
+    erb(:'/activities/index')
   end
 
   helpers do
@@ -24,7 +24,7 @@ class ApplicationController < Sinatra::Base
     end
 
     def blank_params?(hash_key)
-      params["#{hash_key}"].values.any?{|param| param.length <= 0 || param.nil?}
+      params["#{hash_key}"].values.any?{|param| param.empty?}
     end
   end
 end

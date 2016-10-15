@@ -30,7 +30,7 @@ class UsersController < ApplicationController
   end
 
   post '/login' do
-    @user = User.find_by_username(params[:user][:username])
+    @user = User.find_by(username: params[:user][:username])
     if @user && @user.authenticate(params[:user][:password])
       flash[:login_success] = "Welcome, #{@user.username.capitalize}"
       session[:user_id] = @user.id

@@ -1,4 +1,4 @@
-![dogelogo](http://steveafrost.com/assets/dogelogo.png) Much Free, Very Wow ![dogelogo](http://steveafrost.com/assets/dogelogo.png)
+![MuchFreeVeryWowLogo](http://steveafrost.com/assets/muchfreeverywowghlogo.jpg)
 ---
 Much Free, Very Wow is a CRUD Sinatra app where users can signup, login, and contribute free activities to do in NYC.
 

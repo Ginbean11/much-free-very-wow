@@ -1,20 +1,22 @@
-    <div class="row">
-      <div class="col-12">
-        <a href="/"><- Back to Activity List</a>
-        <h3><%= @activity.title %> - <%= @activity.date.strftime('%A, %b %d, %Y') %> - <%= @activity.category.titleize %></h3>
-        <p><%= @activity.description %></p>
-      </div>
+<div class="row">
+  <div class="col-12">
 
-      <br /><br />
+    <a href="/"><- Back to Activity List</a>
+    
+    <h3><%= @activity.title %> - <%= @activity.date.strftime('%A, %b %d, %Y') %> - <%= @activity.category.titleize %></h3>
+    <p><%= @activity.description %></p>
+  </div>
 
-      <div class="col-4" style="clear: left;">
-        <a href="/activities/<%= @activity.slug %>/edit" style="float: left;">
-          <input type="button" value="Edit">
-        </a>
+  <br /><br />
 
-        <form action="/activities/<%= @activity.slug %>" method="post" style="float: left;">
-          <input type="hidden" name="_method" value="delete" />
-          <input type="submit" value="Delete" />
-        </form>
-      </div>
-    </div>
+  <div class="col-4" style="clear: left;">
+    <a href="/activities/<%= @activity.slug %>/edit" style="float: left;">
+      <input type="button" value="Edit">
+    </a>
+
+    <form action="/activities/<%= @activity.slug %>" method="post" style="float: left;">
+      <input type="hidden" name="_method" value="delete" />
+      <input type="submit" value="Delete" />
+    </form>
+  </div>
+</div>
